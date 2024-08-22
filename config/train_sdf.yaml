@@ -1,0 +1,27 @@
+TRAIN_CONFIGS:
+  out_dir: ${model_config.NAME}_${DATASET_CONFIGS.data_type}
+  lr: 0.0005
+  iterations: 10000
+  save_interval: 100
+  grad_accum: 4
+
+DATASET_CONFIGS:
+  data_type: sdf
+  xyz_file: data/stanford3d/gt_lucy.xyz
+  # default settings from BACON
+  num_samples: 27000
+  coarse_scale: 1.0e-1
+  fine_scale: 1.0e-3
+  render_resolution: 512
+
+defaults:
+  - model_config: scone
+
+# hydra logging
+hydra:
+  run:
+    dir: outputs/${TRAIN_CONFIGS.out_dir}/hydra_configs/${now:%Y-%m-%d-%H-%M-%S}
+    
+  sweep:
+    dir: outputs/${TRAIN_CONFIGS.out_dir}/hydra_configs/${now:%Y-%m-%d-%H-%M-%S}/${hydra.job.name}
+    subdir: ${hydra.job.num}

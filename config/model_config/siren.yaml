@@ -1,0 +1,8 @@
+name: SIREN             # [SIREN]
+
+# SIREN_CONFIGS:
+num_layers: 5
+dim_hidden: 256
+w0: 30.0
+w0_initial: 30.0
+use_bias: True

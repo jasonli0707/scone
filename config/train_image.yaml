@@ -1,0 +1,23 @@
+TRAIN_CONFIGS:
+  out_dir: ${model_config.NAME}_${DATASET_CONFIGS.data_type}
+  lr: 1e-4
+  iterations: 10000
+  save_interval: 100
+
+DATASET_CONFIGS:
+  data_type: image
+  img_file: data/kodak/kodim01.png
+  normalize: True
+  color_mode: RGB
+
+defaults:
+  - model_config: scone
+
+# hydra logging
+hydra:
+  run:
+    dir: outputs/${TRAIN_CONFIGS.out_dir}/hydra_configs/${now:%Y-%m-%d-%H-%M-%S}
+    
+  sweep:
+    dir: outputs/${TRAIN_CONFIGS.out_dir}/hydra_configs/${now:%Y-%m-%d-%H-%M-%S}/${hydra.job.name}
+    subdir: ${hydra.job.num}

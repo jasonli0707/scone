@@ -1,0 +1,23 @@
+name: MFN           # [Multiplicative Filter Network] 
+
+MFN_CONFIGS:
+  num_layers: 6
+  dim_hidden: 256
+  net_type: gabor
+
+  NET:
+    input_scale: 256.0
+    weight_scale: 1.0
+    alpha: 6.0
+    beta: 1.0
+    bias: True
+    output_act: False
+
+  # net_type: fourier
+
+  # NET:
+  #   input_scale: 256.0
+  #   weight_scale: 1.0
+  #   bias: True
+  #   output_act: False
+

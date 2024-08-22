@@ -1,0 +1,10 @@
+name: MLP
+
+num_layers: 4
+dim_hidden: 256
+use_bias: True
+
+encoding:
+  type: gaussian
+  sigma: 8.
+  encoded_size: 128

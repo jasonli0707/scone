@@ -1,0 +1,7 @@
+name: SCONE
+
+dim_hidden: 250
+num_layers: 5
+w0: 30.0
+use_bias: True
+omegas: [90, 60, 30, 10] 

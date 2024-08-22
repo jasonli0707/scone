@@ -20,9 +20,38 @@ Department of Electrical and Electronic Engineering, The University of Hong Kong
 <div align="center">
 </div>
 
-## Usage
-Coming soon!
+## ⚙️ Dependency
+```
+conda create -n scone python=3.9
+conda activate scone
+pip install -r requirements.txt
+```
 
+## 🏗️ Code Structure
+
+The repository contains training scripts `train_<image/video/sdf>.py` for various data modalities (image, video, SDF) as described in our paper. For convenience, we provide bash scripts in the `scripts/` directory for quick start. Configuration files, including model and experiment settings, are stored as `.yaml` files under the `config/` directory.
+
+## 🧪 Experiments
+### Image
+The Kodak dataset can be downloaded from [this link](https://r0k.us/graphics/kodak/). After downloading, please place the dataset in the `data/kodak` directory. To select which model to experiment, you can modify the `model_config` argument in the `train_image.sh` script. To train the model on all Kodak images in a single run, execute the following command in your terminal: 
+
+```bash
+./scripts/train_image.sh
+```
+
+### Video
+The original cat video is available [here](https://www.pexels.com/video/the-full-facial-features-of-a-pet-cat-3040808). We have prepared for you the downsampled `cat.npy` file, which can be found in [this link](https://connecthkuhk-my.sharepoint.com/personal/jasonlcl_connect_hku_hk/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fjasonlcl%5Fconnect%5Fhku%5Fhk%2FDocuments%2Fcat%2Enpy&parent=%2Fpersonal%2Fjasonlcl%5Fconnect%5Fhku%5Fhk%2FDocuments&ga=1). Place it under the `data/` folder. Once the data is ready, you can train the model on the cat video by executing the following command in your terminal:
+
+```bash
+./scripts/train_video.sh
+```
+
+### SDF 
+The Stanford 3D scan dataset is available [here](https://graphics.stanford.edu/data/3Dscanrep/). Download the `.xyz` files and place them in the `data/stanford3d/` directory. Then, execute the command to start training on SDF data:
+
+```bash
+./scripts/train_sdf.sh
+```
 
 ## 📝Citation
 

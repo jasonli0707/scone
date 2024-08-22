@@ -1,0 +1,7 @@
+name: WIRE
+
+num_layers: 4
+dim_hidden: 450
+first_omega_0: 20.
+hidden_omega_0: 20.
+scale: 20.
